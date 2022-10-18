@@ -39,8 +39,8 @@ app.post("/", (req, res) => {
       return res
         .status(200)
         .json({
-          message: `Bem vindo ${data.name}`,
           token: "1dagargagry4535grdqtsfd",
+          name: data.name
         });
     })
     .catch((err) => console.log(err));
