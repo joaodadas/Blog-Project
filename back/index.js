@@ -70,11 +70,14 @@ app.post("/registro", async (req, res) => {
     });
 });
 
+//Cria novo post
 app.post("/home", (req, res) => {
   const response = req.body;
   console.log(response);
 
-  prisma.posts.create({ data: {post: response.post}})
+  //Envia o novo post para o bd
+  prisma.posts
+    .create({ data: { post: response.post } })
     .then(() => {
       return res.sendStatus(200);
     })

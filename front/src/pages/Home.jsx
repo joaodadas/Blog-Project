@@ -17,6 +17,8 @@ function Home() {
     axios.post(back, {post}).them().catch();
   }
 
+  axios.get()
+
   return (
     <>
       <div>
@@ -31,6 +33,9 @@ function Home() {
         <div>
           <button onClick={create}>Post</button>
         </div>
+      </div>
+      <div>
+        <text></text>
       </div>
     </>
   );
