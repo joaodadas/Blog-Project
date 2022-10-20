@@ -1,7 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const { PrismaClient } = require("@prisma/client");
-  
+
 const PORT = 5050;
 const app = express();
 const prisma = new PrismaClient();
@@ -36,15 +36,13 @@ app.post("/", (req, res) => {
       }
 
       //Retorna susseso e token
-      return res
-        .status(200)
-        .json({
-          token: "1dagargagry4535grdqtsfd",
-          name: data.name
-        });
+      return res.status(200).json({
+        token: "1dagargagry4535grdqtsfd",
+        name: data.name,
+      });
     })
     .catch((err) => {
-      return res.sendStatus(500)
+      return res.sendStatus(500);
     });
 });
 
@@ -63,21 +61,27 @@ app.post("/registro", async (req, res) => {
         password: response.password,
       },
     })
-    .then((data) => {
-      return res.sendStatus(200)
+    .then(() => {
+      return res.sendStatus(200);
     })
-    .catch((error) => {
-      console.log("caiu no erro")
-      return res.sendStatus(400)
-
+    .catch(() => {
+      console.log("caiu no erro");
+      return res.sendStatus(400);
     });
 });
 
-app.post("/home", (req, res) =>{
+app.post("/home", (req, res) => {
   const response = req.body;
+  console.log(response);
 
-  console.log(response)
-})
+  prisma.posts.create({ data: {post: response.post}})
+    .then(() => {
+      return res.sendStatus(200);
+    })
+    .catch(() => {
+      return res.sendStatus(400);
+    });
+});
 
 app.listen(PORT, () => {
   console.log("Rodando...");
