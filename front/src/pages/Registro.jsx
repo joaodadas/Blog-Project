@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function Registro() {
   const back = "http://localhost:5050/registro";
+  const navigate = useNavigate();
 
   const [name, setName] = useState([]);
   const [email, setEmail] = useState([]);
@@ -16,8 +17,9 @@ function Registro() {
         email,
         password,
       })
-      .then()
-      .catch();
+      .then((data) => navigate("/"))
+      .catch((err) => console.log("aqui"));
+      
   }
 
   return (

@@ -25,7 +25,7 @@ function Login() {
           localStorage.setItem("name", data.data.name)
         )
       )
-      .then(() => navigate("/Home"))
+      .then(() => navigate("/home"))
       .catch((err) => console.log(err));
   }
   // redireciona para a pagina de cadastro.

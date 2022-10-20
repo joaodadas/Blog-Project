@@ -43,17 +43,19 @@ app.post("/", (req, res) => {
           name: data.name
         });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      return res.sendStatus(500)
+    });
 });
 
 //Cadastra novos usuarios
-app.post("/registro", (req, res) => {
+app.post("/registro", async (req, res) => {
   const response = req.body;
 
   console.log(response);
 
   //Envia os dados para o back
-  prisma.user
+  await prisma.user
     .create({
       data: {
         name: response.name,
@@ -61,9 +63,21 @@ app.post("/registro", (req, res) => {
         password: response.password,
       },
     })
-    .then((data) => console.log(data))
-    .catch((error) => console.log(error));
+    .then((data) => {
+      return res.sendStatus(200)
+    })
+    .catch((error) => {
+      console.log("caiu no erro")
+      return res.sendStatus(400)
+
+    });
 });
+
+app.post("/home", (req, res) =>{
+  const response = req.body;
+
+  console.log(response)
+})
 
 app.listen(PORT, () => {
   console.log("Rodando...");

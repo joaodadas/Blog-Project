@@ -1,20 +1,39 @@
-const name = localStorage.getItem('name')
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+const name = localStorage.getItem("name");
 
 function Home() {
+  const back = "http://localhost:5050/home";
+  const navigate = useNavigate();
+  const [post, setPost] = useState("");
 
-    function logout() {
-        localStorage.clear()
-    }
-    
+  function logout() {
+    localStorage.clear();
+    navigate("/");
+  }
 
-    return (
+  function create() {
+    axios.post(back, {post}).them().catch();
+  }
+
+  return (
+    <>
+      <div>
+        <h1>Welcome {name}</h1>
+        <br />
+        <h2>logout</h2>
+        <button onClick={logout}>out</button>
+        <br />
         <div>
-            <h1>Welcome {name}</h1>
-            <br />
-            <h2>logout</h2>
-            <button onClick={logout}>out</button>
-        </div>   
-    )
+          <input type="text" onChange={(e) => setPost(e.target.value)}></input>
+        </div>
+        <div>
+          <button onClick={create}>Post</button>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default Home
+export default Home;
