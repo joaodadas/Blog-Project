@@ -14,7 +14,8 @@ function Home() {
   }
 
   function create() {
-    axios.post(back, {post}).them().catch();
+    const id = localStorage.getItem("id")
+    axios.post(back, {post, id}).them().catch();
   }
 
   axios.get()
@@ -26,16 +27,14 @@ function Home() {
         <br />
         <h2>logout</h2>
         <button onClick={logout}>out</button>
-        <br />
+        <br/> <br/> <br/>
         <div>
           <input type="text" onChange={(e) => setPost(e.target.value)}></input>
         </div>
+        <br />
         <div>
           <button onClick={create}>Post</button>
         </div>
-      </div>
-      <div>
-        <text></text>
       </div>
     </>
   );

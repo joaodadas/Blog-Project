@@ -15,14 +15,15 @@ function Login() {
 
     axios
       .post(back, {
-        email,
         senha,
+        email,
       })
       .then((data) =>
         localStorage.setItem(
           "token",
           JSON.stringify(data.data.token),
-          localStorage.setItem("name", data.data.name)
+          localStorage.setItem("name", data.data.name),
+          localStorage.setItem("id", data.data.id )
         )
       )
       .then(() => navigate("/home"))
