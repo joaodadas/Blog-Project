@@ -12,12 +12,12 @@ app.use(express.json());
 
 //Recebe e trata os dados da tela de login
 app.post("/", (req, res) => {
-  const response = req.body;
-
+  const body = req.body;
+  console.log(body);
   //Rerifica os dados no back
   prisma.user
     .findFirst({
-      where: { email: response.email },
+      where: { email: body.email },
       select: {
         email: true,
         password: true,
@@ -32,7 +32,7 @@ app.post("/", (req, res) => {
       }
 
       //Veriricar senha
-      if (data.password !== response.senha) {
+      if (data.password !== body.senha) {
         return res.status(400).json({ message: "Usuario ou senha incorreto" });
       }
 
@@ -50,36 +50,34 @@ app.post("/", (req, res) => {
 
 //Cadastra novos usuarios
 app.post("/registro", async (req, res) => {
-  const response = req.body;
-
-  console.log(response);
-
+  const body = req.body;
+  console.log(body);
+  
   //Envia os dados para o back
   await prisma.user
     .create({
       data: {
-        name: response.name,
-        email: response.email,
-        password: response.password,
+        name: body.name,
+        email: body.email,
+        password: body.password,
       },
     })
     .then(() => {
       return res.sendStatus(200);
     })
     .catch(() => {
-      console.log("caiu no erro");
       return res.sendStatus(400);
     });
 });
 
 //Cria novo post
 app.post("/home", (req, res) => {
-  const response = req.body;
-  console.log(response);
+  const body = req.body;
+  console.log(body);
 
   //Envia o novo post para o bd
   prisma.posts
-    .create({ data: { post: response.post, userId: Number(response.id) } })
+    .create({ data: { post: body.post, userId: Number(body.id) } })
     .then(() => {
       return res.sendStatus(200);
     })
@@ -88,19 +86,21 @@ app.post("/home", (req, res) => {
     });
 });
 
-//Pegando os posts do banco
-app.post("/home", (req, res) => {
+//Pegando os posts para o perfil
+app.post("/profile", (req, res) => {
+  const body = req.body;
+  //console.log(body);
   prisma.posts
-    .findFirst({
-      where: { post: response.post },
-      select: {
-        post: true,
-      },
+    .findMany({
+      where: { userId: Number(body.id) },
+      select: { post: true },
     })
-    .then(() => {
-      return res.data.post;
+    .then((data) => {
+      console.log(data);
+      return res.send(data);
     })
-    .catch(() => {
+    .catch((e) => {
+      console.log(e);
       return res.sendStatus(400);
     });
 });

@@ -23,8 +23,6 @@ function Home() {
     navigate("/Profile")
   }
 
-  axios.get()
-
   return (
     <>
       <div>
