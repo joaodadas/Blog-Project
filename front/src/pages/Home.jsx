@@ -16,7 +16,7 @@ function Home() {
 
   function create() {
     const id = localStorage.getItem("id")
-    axios.post(back, {post, id}).them().catch();
+    axios.post(back, {post, id}).then().catch();
   }
 
   function profile() {

@@ -52,7 +52,7 @@ app.post("/", (req, res) => {
 app.post("/registro", async (req, res) => {
   const body = req.body;
   console.log(body);
-  
+
   //Envia os dados para o back
   await prisma.user
     .create({
@@ -87,12 +87,12 @@ app.post("/home", (req, res) => {
 });
 
 //Pegando os posts para o perfil
-app.post("/profile", (req, res) => {
-  const body = req.body;
-  //console.log(body);
+app.get("/profile/:id", (req, res) => {
+  const { id } = req.params;
+
   prisma.posts
     .findMany({
-      where: { userId: Number(body.id) },
+      where: { userId: Number(id) },
       select: { post: true },
     })
     .then((data) => {

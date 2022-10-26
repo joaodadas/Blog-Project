@@ -13,17 +13,20 @@ function Login() {
   function enviar(e) {
     e.preventDefault();
 
+    function handleSetItem(key, data) {
+      localStorage.setItem(key, data);
+    }
+
     axios
       .post(back, {
         senha,
         email,
       })
-      .then((data) =>
-        localStorage.setItem("token",JSON.stringify(data.data.token),
-          localStorage.setItem("name", data.data.name),
-          localStorage.setItem("id", data.data.id)
-        )
-      )
+      .then((data) => {
+        handleSetItem("token", data.data.token);
+        handleSetItem("name", data.data.name);
+        handleSetItem("id", data.data.id);
+      })
       .then(() => navigate("/home"))
       .catch((err) => console.log(err));
   }
