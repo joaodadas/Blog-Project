@@ -88,6 +88,21 @@ app.post("/home", (req, res) => {
     });
 });
 
+app.get("/home", (req, res) => {
+  prisma.posts
+    .findMany({
+      select: { post: true },
+    })
+    .then((data) => {
+      console.log(data);
+      return res.send(data);
+    })
+    .catch((e) => {
+      console.log(e);
+      return res.sendStatus(400);
+    });
+});
+
 //Pegando os posts para o perfil
 app.get("/profile/:id", (req, res) => {
   const { id } = req.params;

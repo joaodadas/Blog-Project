@@ -1,34 +1,33 @@
-import axios from "axios"
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { server } from "../config";
 
 function Profile() {
-    const name = localStorage.getItem("name")
-    const id = localStorage.getItem("id")
-    const back = `http://localhost:5050/profile/${id}`;
-    const [posts, setPosts] = useState([])
+  const name = localStorage.getItem("name");
+  const id = localStorage.getItem("id");
+  const [posts, setPosts] = useState([]);
 
-    useEffect(() => {
-        axios.get(back, {id})
-        .then((data) =>  {setPosts(data.data)}) 
-        .catch()
-    }, [])
-    
-    
-    return (
-        <>
-            <h1>{name} Profile</h1>
-            <br/><br/>
-            <h3>Posts</h3>
-            <br/>
-            {posts.map((post) => (<p key={Math.random()}>{post.post}</p>))}
+  useEffect(() => {
+    server
+      .get(`/profile/${id}`)
+      .then((data) => {
+        setPosts(data.data);
+      })
+      .catch();
+  }, []);
 
-
-
-        
-        
-        </>
-
-    )
+  return (
+    <>
+      <h1>{name} Profile</h1>
+      <br />
+      <br />
+      <h2>Posts</h2>
+      <br />
+      {posts.map((post) => (
+        <p key={Math.random()}>{post.post}</p>
+      ))}
+    </>
+  );
 }
 
-export default Profile
+export default Profile;
