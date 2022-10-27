@@ -121,13 +121,12 @@ app.get("/profile/:id", (req, res) => {
     });
 });
 
-// app.delete("/delete", (req, res) => {
+app.delete("/delete/:id", (req, res) => {
+  const { id } = req.params
 
-// //   prisma.posts.findFirst({00000
-// //     where: {},
-// //     select: {}
-// //   })
-// // })
+  console.log(req.body)
+
+})
 
 app.listen(PORT, () => {
   console.log("Rodando...");
