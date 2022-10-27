@@ -63,9 +63,11 @@ app.post("/registro", async (req, res) => {
       },
     })
     .then(() => {
+      console.log('aqui')
       return res.sendStatus(200);
     })
-    .catch(() => {
+    .catch((e) => {
+      console.log(e)
       return res.sendStatus(400);
     });
 });
