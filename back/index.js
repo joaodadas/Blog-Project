@@ -86,6 +86,7 @@ app.post("/home", (req, res) => {
     });
 });
 
+//Pegando os posts para a home
 app.get("/home", (req, res) => {
   prisma.posts
     .findMany({
@@ -108,7 +109,7 @@ app.get("/profile/:id", (req, res) => {
   prisma.posts
     .findMany({
       where: { userId: Number(id) },
-      select: { post: true },
+      select: { post: true, id: true },
     })
     .then((data) => {
       console.log(data);
@@ -119,6 +120,14 @@ app.get("/profile/:id", (req, res) => {
       return res.sendStatus(400);
     });
 });
+
+// app.delete("/delete", (req, res) => {
+
+// //   prisma.posts.findFirst({00000
+// //     where: {},
+// //     select: {}
+// //   })
+// // })
 
 app.listen(PORT, () => {
   console.log("Rodando...");
