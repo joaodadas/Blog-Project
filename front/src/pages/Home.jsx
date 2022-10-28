@@ -55,7 +55,6 @@ function Home() {
           <br />
           <div>
             <p>{post.post}</p>
-            <button>delete</button>
           </div>
           <br/>
         </>

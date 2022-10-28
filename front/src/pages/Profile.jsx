@@ -7,6 +7,7 @@ function Profile() {
   const id = localStorage.getItem("id");
   const [posts, setPosts] = useState([]);
 
+  console.log(posts);
   useEffect(() => {
     server
       .get(`/profile/${id}`)
@@ -16,6 +17,11 @@ function Profile() {
       .catch();
   }, []);
 
+  function deletePost(id) {
+    console.log(id);
+    server.delete(`/delete/${id}`).then().catch();
+  }
+
   return (
     <>
       <h1>{name} Profile</h1>
@@ -24,7 +30,14 @@ function Profile() {
       <h2>Posts</h2>
       <br />
       {posts.map((post) => (
-        <p key={Math.random()}>{post.post}</p>
+        <>
+          <div>
+            <br />
+            <p key={Math.random()}>{post.post}</p>
+            <button onClick={() => deletePost(post.id)}>delete</button>
+            <br />
+          </div>
+        </>
       ))}
     </>
   );
