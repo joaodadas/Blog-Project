@@ -5,7 +5,6 @@ const { PrismaClient } = require("@prisma/client");
 const PORT = 5050;
 const app = express();
 const prisma = new PrismaClient();
-let token = "";
 
 app.use(cors({ origin: true }));
 app.use(express.json());
@@ -114,7 +113,6 @@ app.get("/profile/:id", (req, res) => {
       select: { post: true, id: true },
     })
     .then((data) => {
-      console.log(data);
       return res.send(data);
     })
     .catch((e) => {
@@ -123,12 +121,24 @@ app.get("/profile/:id", (req, res) => {
     });
 });
 
+//Deleta posts do perfil
+
 app.delete("/delete/:id", (req, res) => {
-  const { id } = req.params
+  const { id } = req.params;
+  console.log(id);
 
-  console.log(req.body)
-
-})
+  prisma.posts
+    .delete({
+      where: { id: Number(id) },
+    })
+    .then((data) => {
+      console.log(data);
+      return res.send(data);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+});
 
 app.listen(PORT, () => {
   console.log("Rodando...");
