@@ -72,8 +72,10 @@ app.post("/registro", async (req, res) => {
 //Cria novo post
 app.post("/home", (req, res) => {
   const body = req.body;
+  const hora = new Date;
   console.log(body);
-
+  
+  console.log(hora)
   //Envia o novo post para o bd
   prisma.posts
     .create({ data: { post: body.post, userId: Number(body.id) } })
