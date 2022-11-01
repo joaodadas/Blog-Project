@@ -1,7 +1,6 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-
 exports.postLogin = (req, res) => {
   const body = req.body;
   console.log(body);
@@ -38,3 +37,5 @@ exports.postLogin = (req, res) => {
       return res.sendStatus(500);
     });
 };
+
+
