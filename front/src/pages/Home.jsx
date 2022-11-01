@@ -11,7 +11,7 @@ function Home() {
 
   useEffect(() => {
     server
-      .get(`/home`)
+      .get(`/`)
       .then((data) => {
         setPosts(data.data);
       })
@@ -20,12 +20,12 @@ function Home() {
 
   function logout() {
     localStorage.clear();
-    navigate("/");
+    navigate("/Login");
   }
 
   function create() {
     const id = localStorage.getItem("id");
-    server.post(`/home`, { post, id }).then().catch();
+    server.post(`/`, { post, id }).then().catch();
   }
 
   function profile() {

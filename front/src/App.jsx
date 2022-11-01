@@ -13,11 +13,11 @@ function App() {
       <Routes>
         {/*Rotas Privadas*/}
         <Route element={<PrivateRoute/>}>
-          <Route path="/Home" element={<Home/>}/>
+          <Route path="/" element={<Home/>}/>
           <Route path="/Profile" element={<Profile />}/>
         </Route>
         
-        <Route path="/" element={<Login />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/Registro" element={<Registro/>} />
       </Routes>
     </BrowserRouter>

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const back = "http://localhost:5050/";
+  const back = "http://localhost:5050/Login";
   const navigate = useNavigate();
 
   const [email, setEmail] = useState([]);
@@ -27,7 +27,7 @@ function Login() {
         handleSetItem("name", data.data.name);
         handleSetItem("id", data.data.id);
       })
-      .then(() => navigate("/home"))
+      .then(() => navigate("/"))
       .catch((err) => console.log(err));
   }
   // redireciona para a pagina de cadastro.

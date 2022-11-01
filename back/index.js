@@ -5,47 +5,13 @@ const { PrismaClient } = require("@prisma/client");
 const PORT = 5050;
 const app = express();
 const prisma = new PrismaClient();
+const LoginController = require("./controllers/login-controller");
 
 app.use(cors({ origin: true }));
 app.use(express.json());
 
 //Recebe e trata os dados da tela de login
-app.post("/", (req, res) => {
-  const body = req.body;
-  console.log(body);
-  //Rerifica os dados no back
-  prisma.user
-    .findFirst({
-      where: { email: body.email },
-      select: {
-        email: true,
-        password: true,
-        name: true,
-        id: true,
-      },
-    })
-    .then((data) => {
-      //Verifica email
-      if (!data) {
-        return res.status(400).json({ message: "Usuario ou senha incorreto" });
-      }
-
-      //Veriricar senha
-      if (data.password !== body.senha) {
-        return res.status(400).json({ message: "Usuario ou senha incorreto" });
-      }
-
-      //Retorna susseso e token
-      return res.status(200).json({
-        token: "1dagargagry4535grdqtsfd",
-        name: data.name,
-        id: data.id,
-      });
-    })
-    .catch((err) => {
-      return res.sendStatus(500);
-    });
-});
+app.post("/Login", LoginController.postLogin);
 
 //Cadastra novos usuarios
 app.post("/registro", async (req, res) => {
@@ -62,22 +28,20 @@ app.post("/registro", async (req, res) => {
       },
     })
     .then(() => {
-      console.log('aqui')
       return res.sendStatus(200);
     })
-    .catch((e) => {
-      console.log(e)
+    .catch(() => {
       return res.sendStatus(400);
     });
 });
 
 //Cria novo post
-app.post("/home", (req, res) => {
+app.post("/", (req, res) => {
   const body = req.body;
-  const hora = new Date;
+  const hora = new Date();
   console.log(body);
-  
-  console.log(hora)
+
+  console.log(hora);
   //Envia o novo post para o bd
   prisma.posts
     .create({ data: { post: body.post, userId: Number(body.id) } })
@@ -90,7 +54,7 @@ app.post("/home", (req, res) => {
 });
 
 //Pegando os posts para a home
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
   prisma.posts
     .findMany({
       select: { post: true },
