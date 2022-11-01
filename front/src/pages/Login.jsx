@@ -9,26 +9,25 @@ function Login() {
   const [email, setEmail] = useState([]);
   const [senha, setSenha] = useState([]);
 
+  function handleSetItem(key, data) {
+    localStorage.setItem(key, data);
+  }
   // Manda o e-mail e a senha para o back
-  function enviar(e) {
-    e.preventDefault();
+  async function enviar(e) {
+    try {
+      e.preventDefault();
 
-    function handleSetItem(key, data) {
-      localStorage.setItem(key, data);
-    }
-
-    axios
-      .post(back, {
+      const data = await axios.post(back, {
         senha,
         email,
-      })
-      .then((data) => {
-        handleSetItem("token", data.data.token);
-        handleSetItem("name", data.data.name);
-        handleSetItem("id", data.data.id);
-      })
-      .then(() => navigate("/"))
-      .catch((err) => console.log(err));
+      });
+      handleSetItem("token", data.data.token);
+      handleSetItem("name", data.data.name);
+      handleSetItem("id", data.data.id);
+      navigate("/");
+    } catch (error) {
+      console.log(err);
+    }
   }
   // redireciona para a pagina de cadastro.
   function cadastro() {

@@ -19,6 +19,7 @@ function App() {
         
         <Route path="/Login" element={<Login />} />
         <Route path="/Registro" element={<Registro/>} />
+        <Route path="*" element={<div>404!</div>}/>
       </Routes>
     </BrowserRouter>
   );

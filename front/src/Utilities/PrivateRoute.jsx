@@ -3,10 +3,10 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useEffect } from "react";
 
 
-const token = localStorage.getItem('token')
 
 function PrivateRoute () {
     const location = useLocation();
+    const token = localStorage.getItem('token')
     
 
     return (

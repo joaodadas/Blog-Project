@@ -1,19 +1,11 @@
-const cors = require("cors");
-const express = require("express");
 const { PrismaClient } = require("@prisma/client");
-
-
-const app = express();
 const prisma = new PrismaClient();
 
-
-app.use(cors({ origin: true }));
-app.use(express.json());
 
 exports.postLogin = (req, res) => {
   const body = req.body;
   console.log(body);
-  //Rerifica os dados no back
+  //Verifica os dados no back
   prisma.user
     .findFirst({
       where: { email: body.email },

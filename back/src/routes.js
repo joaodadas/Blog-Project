@@ -1,20 +1,14 @@
-const cors = require("cors");
-const express = require("express");
 const { PrismaClient } = require("@prisma/client");
-
-const PORT = 5050;
-const app = express();
 const prisma = new PrismaClient();
-const LoginController = require("./controllers/login-controller");
+const LoginController = require("./controllers/login.controller");
+const { Router } = require("express");
 
-app.use(cors({ origin: true }));
-app.use(express.json());
+const routes = new Router();
 
-//Recebe e trata os dados da tela de login
-app.post("/Login", LoginController.postLogin);
+routes.post("/Login", LoginController.postLogin);
 
 //Cadastra novos usuarios
-app.post("/registro", async (req, res) => {
+routes.post("/registro", async (req, res) => {
   const body = req.body;
   console.log(body);
 
@@ -36,7 +30,7 @@ app.post("/registro", async (req, res) => {
 });
 
 //Cria novo post
-app.post("/", (req, res) => {
+routes.post("/", (req, res) => {
   const body = req.body;
   const hora = new Date();
   console.log(body);
@@ -54,7 +48,7 @@ app.post("/", (req, res) => {
 });
 
 //Pegando os posts para a home
-app.get("/", (req, res) => {
+routes.get("/", (req, res) => {
   prisma.posts
     .findMany({
       select: { post: true },
@@ -70,7 +64,7 @@ app.get("/", (req, res) => {
 });
 
 //Pegando os posts para o perfil
-app.get("/profile/:id", (req, res) => {
+routes.get("/profile/:id", (req, res) => {
   const { id } = req.params;
 
   prisma.posts
@@ -89,7 +83,7 @@ app.get("/profile/:id", (req, res) => {
 
 //Deleta posts do perfil
 
-app.delete("/delete/:id", (req, res) => {
+routes.delete("/delete/:id", (req, res) => {
   const { id } = req.params;
   console.log(id);
 
@@ -106,6 +100,4 @@ app.delete("/delete/:id", (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-  console.log("Rodando...");
-});
+module.exports = routes;
