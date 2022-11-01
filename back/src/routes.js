@@ -1,9 +1,9 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
-const LoginController = require("./controllers/login.controller");
-const RegistroController = require("./controllers/registro.controller");
-const HomeController = require("./controllers/home.controller");
-const ProfileController = require("./controllers/profile.controller")
+const LoginController = require("./controllers/login");
+const RegistroController = require("./controllers/registro");
+const HomeController = require("./controllers/home");
+const ProfileController = require("./controllers/profile")
 const { Router } = require("express");
 
 const routes = new Router();

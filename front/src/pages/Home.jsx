@@ -56,7 +56,7 @@ function Home() {
           <div>
             <p>{post.post}</p>
           </div>
-          <br/>
+          <br />
         </>
       ))}
     </>
