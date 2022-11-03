@@ -41,13 +41,16 @@ function Home() {
         <h2>logout</h2>
         <button onClick={logout}>out</button>
         <br /> <br /> <br />
-        <div>
-          <input type="text" onChange={(e) => setPost(e.target.value)}></input>
-        </div>
-        <br />
-        <div>
-          <button onClick={create}>Post</button>
-        </div>
+        <form>
+          <div>
+            <input type="text" onChange={(e) => setPost(e.target.value)}></input>
+          </div>
+          <br />
+          <div>
+            <button onClick={create}>Post</button>
+          </div>
+
+        </form>
       </div>
       <h1>Posts</h1>
       {posts.map((post) => (
