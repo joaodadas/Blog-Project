@@ -5,13 +5,13 @@ exports.getProfile = async (req, res) => {
   try {
     const { id } = req.params;
 
-    await prisma.posts.findMany({
+    const data = await prisma.posts.findMany({
       where: { userId: Number(id) },
       select: { post: true, id: true },
     });
     return res.send(data);
   } catch (error) {
-    console.log(e);
+    console.log(error);
     return res.sendStatus(400);
   }
 };
