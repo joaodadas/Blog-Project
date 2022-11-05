@@ -1,0 +1,87 @@
+.header-main {
+    width: 100%;
+    height: 70px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+
+.header-inside {
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-div {
+    height: 100%;
+    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.header-icon {
+    height: 100%;
+    aspect-ratio: 1;
+    background-image: url(https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.header-home {
+    background-color: #f5fdff;
+    height: 100%;
+    border: transparent;
+    border-radius: 9px;
+}
+
+.header-explor {
+    background-image: url(https://www.flaticon.com/svg/vstatic/svg/3917/3917789.svg?token=exp=1667603931~hmac=fc2fa51cfeaa436087f7ac0790563a8a);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.header-message {
+    background-image: url(https://www.flaticon.com/svg/vstatic/svg/3916/3916631.svg?token=exp=1667604678~hmac=4f7af34592f622f05013f7943a5afdf2);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.header-notifications {
+    background-image: url(https://www.flaticon.com/svg/vstatic/svg/3917/3917240.svg?token=exp=1667604894~hmac=ce162f14616a93b6258ca9bca1bd7648);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+input {
+    /* background-color: #1b2730; */
+    background-color: #fff;
+    border-color: transparent;
+    border-radius: 9px;
+    height: 100%;
+    padding: 5px 10px;
+
+}
+
+input:focus {
+    outline: none;
+} 
+

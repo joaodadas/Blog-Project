@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap"
 
 function Login() {
   const back = "http://localhost:5050/Login";
@@ -61,7 +62,7 @@ function Login() {
         <br />
         <div>
           {/*Ativa a função de envio para o back*/}
-          <button onClick={(e) => enviar(e)}>Login</button>
+          <Button onClick={(e) => enviar(e) }>Login</Button>
         </div>
         <br />
       </form>
