@@ -39,62 +39,56 @@ function Home() {
   return (
     <>
       <div className="container">
-
-        <body>
-          {/* Cabeçalho */}
-          <header className="header-main">
-            <div className="header-inside">
-              <div className="header-div">
-                <div className="header-icon" />
-                <input placeholder="Explore" />
-              </div>
-              <div className="header-div">
-                <button className="header-home">Home</button>
-                <div className="header-explor " />
-                <div className="header-message" />
-                <div className="header-notifications" />
-                <button className="header-profile" />
-              </div>
+        
+        {/* Cabeçalho */}
+        <header className="header-main">
+          <div className="header-inside">
+            <div className="header-div">
+              <div className="header-icon" />
+              <input placeholder="Explore" />
             </div>
-          </header>
+            <div className="header-div">
+              <button className="header-home">Home</button>
+              <div className="header-explor " />
+              <div className="header-message" />
+              <div className="header-notifications" />
+              <button className="header-profile" />
+            </div>
+          </div>
+        </header>
 
-          {/* Parte Principal */}
-          <main>
-
-            <h1>Welcome {name}</h1>
-            <button onClick={profile}>Profile</button>
+        {/* Parte Principal */}
+        <main>
+          <h1>Welcome {name}</h1>
+          <button onClick={profile}>Profile</button>
+          <br />
+          <h2>logout</h2>
+          <button onClick={logout}>out</button>
+          <br /> <br /> <br />
+          <form>
+            <div>
+              <input
+                type="text"
+                onChange={(e) => setPost(e.target.value)}
+              ></input>
+            </div>
             <br />
-            <h2>logout</h2>
-            <button onClick={logout}>out</button>
-            <br /> <br /> <br />
-            <form>
-              <div>
-                <input
-                  type="text"
-                  onChange={(e) => setPost(e.target.value)}
-                ></input>
-              </div>
+            <div>
+              <button onClick={create}>Post</button>
+            </div>
+          </form>
+          <h1>Posts</h1>
+          {posts.map((post) => (
+            <>
               <br />
               <div>
-                <button onClick={create}>Post</button>
+                <p>{post.post}</p>
               </div>
-            </form>
-            <h1>Posts</h1>
-            {posts.map((post) => (
-              <>
-                <br />
-                <div>
-                  <p>{post.post}</p>
-                </div>
-                <br />
-              </>
-            ))}
-          </main>
-
-        </body>
-
+              <br />
+            </>
+          ))}
+        </main>
       </div>
-
     </>
   );
 }

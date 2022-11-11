@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+.container{
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 20vh 70vh 10vh;
+}
+
 /* Estilos do Header */
 .header-main {
   width: 100%;
