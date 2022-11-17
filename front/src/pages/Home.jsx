@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { server } from "../config";
-import { Button } from "react-bootstrap"
 
 import Header from "../components/Header";
 
