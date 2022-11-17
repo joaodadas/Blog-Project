@@ -38,18 +38,18 @@
   align-items: center;
 }
 
-.inputMain {
-  background-color: #28353e;
-  width: 100%;
-  height: 60px;
-}
-
 .buttonInput {
   border-radius: 9px;
   background-color: #2fa2f2;
   border: none;
   padding: 10px 30px;
   color: #f5fdff;
+}
+
+.inputMain {
+  background-color: #28353e;
+  width: 100%;
+  height: 60px;
 }
 
 .input {
@@ -125,32 +125,7 @@
   border-radius: 9px;
 }
 
-.header-explor {
-  background-image: url(https://www.flaticon.com/svg/vstatic/svg/3917/3917789.svg?token=exp=1667603931~hmac=fc2fa51cfeaa436087f7ac0790563a8a);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  height: 100%;
-  aspect-ratio: 1;
-}
 
-.header-message {
-  background-image: url(https://www.flaticon.com/svg/vstatic/svg/3916/3916631.svg?token=exp=1667604678~hmac=4f7af34592f622f05013f7943a5afdf2);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100%;
-  aspect-ratio: 1;
-}
-
-.header-notifications {
-  background-image: url(https://www.flaticon.com/svg/vstatic/svg/3917/3917240.svg?token=exp=1667604894~hmac=ce162f14616a93b6258ca9bca1bd7648);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100%;
-  aspect-ratio: 1;
-}
 /* Fim estilos Header */
 
 input {

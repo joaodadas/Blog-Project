@@ -45,9 +45,6 @@ function Home() {
             </div>
             <div className="header-div">
               <button className="header-home">Home</button>
-              <div className="header-explor " />
-              <div className="header-message" />
-              <div className="header-notifications" />
               <button onClick={profile}>Profile</button>
               <button onClick={logout}>out</button>
             </div>
