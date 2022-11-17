@@ -1,11 +1,9 @@
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { server } from "../config";
-import { Button } from "react-bootstrap";
-import "../index.css";
 
-import Header from "../components/Header";
+import "../index.css";
 
 function Home() {
   const navigate = useNavigate();
@@ -38,8 +36,6 @@ function Home() {
 
   return (
     <>
-      <div className="container">
-        
         {/* Cabeçalho */}
         <header className="header-main">
           <div className="header-inside">
@@ -52,41 +48,43 @@ function Home() {
               <div className="header-explor " />
               <div className="header-message" />
               <div className="header-notifications" />
-              <button className="header-profile" />
+              <button onClick={profile}>Profile</button>
+              <button onClick={logout}>out</button>
             </div>
           </div>
         </header>
+      <div className="container">
+        
 
         {/* Parte Principal */}
-        <main>
-          <h1>Welcome {name}</h1>
-          <button onClick={profile}>Profile</button>
-          <br />
-          <h2>logout</h2>
-          <button onClick={logout}>out</button>
-          <br /> <br /> <br />
-          <form>
-            <div>
-              <input
-                type="text"
-                onChange={(e) => setPost(e.target.value)}
-              ></input>
-            </div>
-            <br />
-            <div>
-              <button onClick={create}>Post</button>
-            </div>
-          </form>
-          <h1>Posts</h1>
-          {posts.map((post) => (
-            <>
-              <br />
-              <div>
-                <p>{post.post}</p>
+        <main className="main">
+
+          <div className="inputContainer">
+              <div className="input">
+                <input
+                  placeholder="What`s Heppening?"
+                  className="input"
+                  type="text"
+                  onChange={(e) => setPost(e.target.value)}
+                />
               </div>
-              <br />
-            </>
-          ))}
+              <div className="inputButton">
+                <button className="buttonInput" onClick={create}>Post</button>
+              </div>
+          </div>
+
+          <div className="postContainer">
+            {posts.map((post) => (
+              <div className="post">
+                <br />
+                <div>
+                  <p>{post.post}</p>
+                </div>
+                <br />
+              </div>
+            ))}
+          </div>
+
         </main>
       </div>
     </>

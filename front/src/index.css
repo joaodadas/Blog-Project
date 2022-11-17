@@ -5,16 +5,84 @@
 }
 
 .container{
+  background-color: #05141c;
+  color: #f5fdff;
   display: grid;
-  grid-template-columns: 4fr 1fr;
-  grid-template-rows: 20vh 70vh 10vh;
+  grid-template-columns: 1fr 1.7fr 1fr;
+  min-height: 100vh;
+
+  grid-gap: 20px;
+
+}
+
+.main{
+  grid-column: 2/3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.inputContainer {
+  background-color: #1b2730;
+  padding: 30px;
+  width: 100%;
+  border-radius: 9px;
+}
+
+.inputButton {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputMain {
+  background-color: #28353e;
+  width: 100%;
+  height: 60px;
+}
+
+.buttonInput {
+  border-radius: 9px;
+  background-color: #2fa2f2;
+  border: none;
+  padding: 10px 30px;
+  color: #f5fdff;
+}
+
+.input {
+  border-radius: 9px;
+  aspect-ratio: 1;
+  background-color: #28353e;
+  color: #fff;
+  width: 100%;
+  height: 60px;
+}
+
+/* Estilos do Post */
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.post {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #1b2730;
+
 }
 
 /* Estilos do Header */
 .header-main {
   width: 100%;
   height: 70px;
-  background-color: red;
+  background-color: #05141c;
   display: flex;
   justify-content: center;
 }
@@ -23,7 +91,7 @@
   height: 100%;
   width: 100%;
   max-width: 1000px;
-  background-color: blue;
+  background-color: #05141c;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,7 +99,7 @@
 
 .header-div {
   height: 100%;
-  background-color: yellow;
+  background-color: #05141c;
   display: flex;
   flex-direction: row;
   align-items: center;
