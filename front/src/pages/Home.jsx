@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { server } from "../config";
@@ -36,53 +35,67 @@ function Home() {
 
   return (
     <>
-        {/* Cabeçalho */}
-        <header className="header-main">
-          <div className="header-inside">
-            <div className="header-div">
-              <div className="header-icon" />
-              <input placeholder="Explore" />
-            </div>
-            <div className="header-div">
-              <button className="header-home">Home</button>
-              <button onClick={profile}>Profile</button>
-              <button onClick={logout}>out</button>
-            </div>
+      {/* Cabeçalho */}
+      <header className="header-main">
+        <div className="header-inside">
+          <div className="header-div">
+            <div className="header-icon" />
+            <input className="inputHeader" placeholder="# Explore" />
           </div>
-        </header>
+          <div className="header-div">
+            <button className="buttonHeader">Home</button>
+            <button className="buttonHeader" onClick={profile}>Profile</button>
+            <button className="buttonHeader" onClick={logout}>out</button>
+          </div>
+        </div>
+      </header>
       <div className="container">
-        
 
         {/* Parte Principal */}
         <main className="main">
-
           <div className="inputContainer">
-              <div className="input">
-                <input
-                  placeholder="What`s Heppening?"
-                  className="input"
-                  type="text"
-                  onChange={(e) => setPost(e.target.value)}
-                />
-              </div>
-              <div className="inputButton">
-                <button className="buttonInput" onClick={create}>Post</button>
-              </div>
+            <div className="input">
+              <input
+                placeholder="What`s Heppening?"
+                className="input"
+                type="text"
+                onChange={(e) => setPost(e.target.value)}
+              />
+            </div>
+            <div className="inputButton">
+              <button className="buttonInput" onClick={create}>
+                Post
+              </button>
+            </div>
           </div>
 
           <div className="postContainer">
             {posts.map((post) => (
-              <div className="post">
-                <br />
-                <div>
-                  <p>{post.post}</p>
+              <div className="mainPost">
+                <div>Icone</div>
+                <div className="post">
+                  <div className="headerPost">
+                    <div>Nome</div>
+                    <div>Tres pontos</div>
+                    
+                  </div>
+
+                  <div>
+                    <p>{post.post}</p>
+                  </div>
+
+                  <div className="containerPostButton">
+                    <div className="postButtonLike">Like</div>
+                    <div className="postButtonRetweet">Retweet</div>
+                    <div className="postButtonComment">Comment</div>
+                    <div className="postButtonSave">Save</div>
+                  </div>
                 </div>
-                <br />
               </div>
             ))}
           </div>
-
         </main>
+        
       </div>
     </>
   );
