@@ -50,6 +50,10 @@ function Home() {
         </div>
       </header>
       <div className="container">
+        
+        <aside className="asideA"></aside>
+        <aside className="asideB"></aside>
+        <aside className="asideTrend"></aside>
 
         {/* Parte Principal */}
         <main className="main">
@@ -95,7 +99,7 @@ function Home() {
             ))}
           </div>
         </main>
-        
+
       </div>
     </>
   );
