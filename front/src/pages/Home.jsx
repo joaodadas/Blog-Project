@@ -1,9 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { server } from "../config";
 
-import Header from "../components/Header";
+import "../index.css";
 
 function Home() {
   const navigate = useNavigate();
@@ -36,35 +35,72 @@ function Home() {
 
   return (
     <>
-      <Header />
-      <div>
-        <h1>Welcome {name}</h1>
-        <button onClick={profile}>Profile</button>
-        <br />
-        <h2>logout</h2>
-        <button onClick={logout}>out</button>
-        <br /> <br /> <br />
-        <form>
-          <div>
-            <input type="text" onChange={(e) => setPost(e.target.value)}></input>
+      {/* Cabeçalho */}
+      <header className="header-main">
+        <div className="header-inside">
+          <div className="header-div">
+            <div className="header-icon" />
+            <input className="inputHeader" placeholder="# Explore" />
           </div>
-          <br />
-          <div>
-            <button onClick={create}>Post</button>
+          <div className="header-div">
+            <button className="buttonHeader">Home</button>
+            <button className="buttonHeader" onClick={profile}>Profile</button>
+            <button className="buttonHeader" onClick={logout}>out</button>
+          </div>
+        </div>
+      </header>
+      <div className="container">
+        
+        <aside className="asideA"></aside>
+        <aside className="asideB"></aside>
+        <aside className="asideTrend"></aside>
+
+        {/* Parte Principal */}
+        <main className="main">
+          <div className="inputContainer">
+            <div className="input">
+              <input
+                placeholder="What`s Heppening?"
+                className="input"
+                type="text"
+                onChange={(e) => setPost(e.target.value)}
+              />
+            </div>
+            <div className="inputButton">
+              <button className="buttonInput" onClick={create}>
+                Post
+              </button>
+            </div>
           </div>
 
-        </form>
-      </div>
-      <h1>Posts</h1>
-      {posts.map((post) => (
-        <>
-          <br />
-          <div>
-            <p>{post.post}</p>
+          <div className="postContainer">
+            {posts.map((post) => (
+              <div className="mainPost">
+                <div>Icone</div>
+                <div className="post">
+                  <div className="headerPost">
+                    <div>Nome</div>
+                    <div>Tres pontos</div>
+                    
+                  </div>
+
+                  <div>
+                    <p>{post.post}</p>
+                  </div>
+
+                  <div className="containerPostButton">
+                    <div className="postButtonLike">Like</div>
+                    <div className="postButtonRetweet">Retweet</div>
+                    <div className="postButtonComment">Comment</div>
+                    <div className="postButtonSave">Save</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-          <br />
-        </>
-      ))}
+        </main>
+
+      </div>
     </>
   );
 }
