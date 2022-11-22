@@ -56,7 +56,6 @@ body {
 }
 
 .buttonHeader {
-  opacity: ;
   border-radius: 9px;
   background-color: #2fa2f2;
   border: none;
@@ -216,9 +215,37 @@ body {
 
 /* Estilo asides */
 
-.asideA {
-  
+.sideLeft {
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
+
+.asideA {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  width: 100%;
+  height: 150px; 
+  background-color: red;
+}
+
+.asideB {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  width: 100%;
+  height: 150px; 
+  background-color: red;
+}
+
+.asideTrend {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  width: 100%;
+  height: 150px; 
+  background-color: red;
+}
+
 
 input {
   /* background-color: #1b2730; */

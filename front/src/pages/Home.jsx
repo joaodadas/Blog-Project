@@ -51,9 +51,11 @@ function Home() {
       </header>
       <div className="container">
         
-        <aside className="asideA"></aside>
-        <aside className="asideB"></aside>
-        <aside className="asideTrend"></aside>
+        <div className="sideLeft">
+          <div className="asideA"></div>
+          <div className="asideB"></div>
+        </div>
+        <div className="asideTrend"></div>
 
         {/* Parte Principal */}
         <main className="main">

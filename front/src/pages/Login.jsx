@@ -62,7 +62,7 @@ function Login() {
         <br />
         <div>
           {/*Ativa a função de envio para o back*/}
-          <Button onClick={(e) => enviar(e) }>Login</Button>
+          <button onClick={(e) => enviar(e) }>Login</button>
         </div>
         <br />
       </form>
