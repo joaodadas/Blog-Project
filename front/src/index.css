@@ -70,13 +70,16 @@ body {
   grid-template-columns: 1fr 1.7fr 1fr;
   min-height: 100vh;
 
-  grid-gap: 20px;
+  padding: 30px;
+  grid-gap: 30px;
 }
 
 /* Estilos do Meio */
 
 .main {
   grid-column: 2/3;
+  grid-row: 1/2;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -216,35 +219,68 @@ body {
 /* Estilo asides */
 
 .sideLeft {
-
+  grid-column: 1/2;
+  grid-row: 1/2;
+  
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
+}
+
+.sideRight{
+  grid-column: 3/4;
+  grid-row: 1/2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .asideA {
-  grid-column: 1/2;
-  grid-row: 1/2;
   width: 100%;
-  height: 150px; 
-  background-color: red;
+  height: 400px; 
+  background-color: #1b2730;
+
+  border-radius: 9px;
 }
 
 .asideB {
-  grid-column: 1/2;
-  grid-row: 2/3;
   width: 100%;
   height: 150px; 
-  background-color: red;
+  background-color: #1b2730;
+
+  border-radius: 9px;
 }
 
 .asideTrend {
-  grid-column: 3/4;
-  grid-row: 1/2;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  width: 60%;
   height: 150px; 
+  background-color: #1b2730;
+
+  width: 100%;
+  height: 700px;
+
+  border-radius: 9px;
+}
+
+.trendTitle{
+  display: flex;
+  justify-content: left;
+}
+
+.trend {
+  width: 100%;
+  height: 40px;
+
   background-color: red;
 }
+
 
 
 input {
