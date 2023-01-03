@@ -55,7 +55,20 @@ function Home() {
           <div className="asideA"></div>
           <div className="asideB"></div>
         </div>
-        <div className="asideTrend"></div>
+
+        <div className="sideRight">
+          <div className="asideTrend">
+            <div className="trendTitle">
+              <h1>what's happening</h1>
+            </div>
+            <div className="trend"></div>
+            <div className="trend"></div>
+            <div className="trend"></div>
+            <div className="trend"></div>
+            <div className="trend"></div>
+            <div className="trendPlus"></div>
+          </div>
+        </div>
 
         {/* Parte Principal */}
         <main className="main">
